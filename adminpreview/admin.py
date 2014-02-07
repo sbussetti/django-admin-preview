@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 from django.views.generic.detail import DetailView
 
 class PreviewAdmin(admin.ModelAdmin):
@@ -8,11 +8,11 @@ class PreviewAdmin(admin.ModelAdmin):
         css = dict(
             all = ['css/adminpreview.css']
         )
-    
+
     def admin_slide_preview(self, obj):
         """
         Add this to your ModelAdmin:
-        
+
         list_display = ('headline','created_date', 'state', 'admin_slide_preview')
         """
         return "<div class=\"previewslide\" id=\"%s/preview/\">+</div>" % obj.id
